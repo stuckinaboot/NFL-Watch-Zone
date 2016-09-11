@@ -1,0 +1,32 @@
+Arizona Cardinals	ARZ
+Miami Dolphins	MIA
+Atlanta Falcons	ATL
+Minnesota Vikings	MIN
+Baltimore Ravens	BLT
+New England Patriots	NE
+Buffalo Bills	BUF 
+New Orleans Saints	NO
+Carolina Panthers	CAR
+New York Giants	NYG
+Chicago Bears	CHI
+New York Jets	NYJ
+Cincinnati Bengals	CIN
+Oakland Raiders	OAK
+Cleveland Browns	CLV
+Philadelphia Eagles	PHI
+Dallas Cowboys	DAL
+Pittsburgh Steelers	PIT
+Denver Broncos	DEN
+Los Angeles Rams	STL
+Detroit Lions	DET
+San Diego Chargers	SD
+Green Bay Packers	GB
+San Francisco 49ers	SF
+Houston Texans	HOU
+Seattle Seahawks	SEA
+Indianapolis Colts	IND
+Tampa Bay Buccaneers	TB
+Jacksonville Jaguars	JAX
+Tennessee Titans	TEN
+Kansas City Chiefs	KC
+Washington Redskins	WAS
