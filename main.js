@@ -113,24 +113,24 @@ $(function () {
             var playerTxtComponents = playerTxt.split(' ');
             var playerNameStr = playerTxtComponents[0].substring(0, 1) 
                                 + '.' + playerTxtComponents[1];
-            var model = new window.PlayerModel({
-                    name: playerNameStr,
-                    full_name: playerTxt
-                });
+            // var model = new window.PlayerModel({
+            //         name: playerNameStr,
+            //         full_name: playerTxt
+            //     });
             var gameInfo = window.gameHandler.getGameInfo(playerMap[playerTxt]['team']);
-            model.set({
-                gameID: gameInfo['gameID'],
-                stance: gameInfo['stance']
-            });
+            // model.set({
+            //     gameID: gameInfo['gameID'],
+            //     stance: gameInfo['stance']
+            // });
             function obtainInfoCallback (gameDetailedInfo) {
                 //NOTE: NEED TO UPDATE THIS SO IF A PLAYER HAS BOTH RUSHING AND RECEIVING, HE WILL APPEAR IN BOTH
 
                 //Find the right model in the info
                 var foundPlayer = false;
-                var playerObj = undefined;
-                var keyFoundAt = '';
+                // var playerObj = undefined;
+                // var keyFoundAt = '';
 
-                
+                var keysFoundAt = {};
 
                 var foundStance = '';
                 var stances = ['home', 'away'];
@@ -139,34 +139,50 @@ $(function () {
                         $.each(gameDetailedInfo[stance][key], function (i, player) {
                             if (player['name'] === playerNameStr) {
                                 foundPlayer = true;
-                                playerObj = player;
-                                keyFoundAt = key;
+                                // playerObj = player;
+                                // keyFoundAt = key;
+                                keysFoundAt[key] = player;
                                 foundStance = stance;
-                                return false;
+                                // return false;
                             }
                         });
                         if (foundPlayer) {
-                            return false;
+                            // return false;
                         }
                     });
                 });
                 if (foundPlayer) {
-                    //Check if model exist in collection
-                    var existingModel = collections[keyFoundAt].find(function (m) {
-                        return m.get('name') === model.get('name');
-                    });
+                    $.each(keysFoundAt, function (keyFoundAt, playerObj) {
+                        //Check if model exist in collection
+                        var model;
+                        var existingModel = collections[keyFoundAt].find(function (m) {
+                            return m.get('name') === playerNameStr;
+                        });
 
-                    if (typeof existingModel !== 'undefined') {
-                        model = existingModel;
-                    }
-                    //Add stats to the player model
-                    var team = (foundStance === 'home') ? gameDetailedInfo['home_abbr'] : gameDetailedInfo['away_abbr'] 
-                    model.set({
-                        team: team,
-                        pos: playerMap[playerTxt]['pos']
+                        if (typeof existingModel !== 'undefined') {
+                            model = existingModel;
+                        } else {
+                            var model = new window.PlayerModel({
+                                name: playerNameStr,
+                                full_name: playerTxt
+                            });
+                            model.set({
+                                gameID: gameInfo['gameID'],
+                                stance: gameInfo['stance']
+                            });
+                        }
+                        //Add stats to the player model
+                        var team = (foundStance === 'home') ? gameDetailedInfo['home_abbr'] : gameDetailedInfo['away_abbr'] 
+                        
+                        model.set({
+                            team: team,
+                            pos: playerMap[playerTxt]['pos']
+                        });
+                        console.log(keyFoundAt);
+                        console.log(existingModel);
+                        model.set(playerObj);
+                        collections[keyFoundAt].add(model);
                     });
-                    model.set(playerObj);
-                    collections[keyFoundAt].add(model);
                     if ($.inArray(playerTxt, playerNameList) == -1) {
                         playerNameList.push(playerTxt);
                     }
