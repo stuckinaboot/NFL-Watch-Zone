@@ -123,10 +123,15 @@ $(function () {
                 stance: gameInfo['stance']
             });
             function obtainInfoCallback (gameDetailedInfo) {
+                //NOTE: NEED TO UPDATE THIS SO IF A PLAYER HAS BOTH RUSHING AND RECEIVING, HE WILL APPEAR IN BOTH
+
                 //Find the right model in the info
                 var foundPlayer = false;
                 var playerObj = undefined;
                 var keyFoundAt = '';
+
+                
+
                 var foundStance = '';
                 var stances = ['home', 'away'];
                 $.each(stances, function (a, stance) {
