@@ -1,6 +1,6 @@
 $(function () {
     var obtainPlayerData = function (callback) {
-        var file = './players_from_updates.txt'
+        var file = 'players_from_updates.txt'
         // var file = './nfl-players2.txt';
 
         playerMap = {};

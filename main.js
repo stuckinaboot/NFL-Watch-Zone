@@ -178,8 +178,8 @@ $(function () {
                             team: team,
                             pos: playerMap[playerTxt]['pos']
                         });
-                        console.log(keyFoundAt);
-                        console.log(existingModel);
+                        // console.log(keyFoundAt);
+                        // console.log(existingModel);
                         model.set(playerObj);
                         collections[keyFoundAt].add(model);
                     });

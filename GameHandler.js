@@ -49,7 +49,7 @@ $(function () {
 
     var obtainInfoDetailed = function (gameID, callback) {
         var url = 'http://www.nfl.com/liveupdate/game-center/' + gameID + '/' + gameID + '_gtd.json';
-        console.log(url);
+        // console.log(url);
         if (DEV_MODE_ON) {
             if (typeof jsonNum === 'undefined') {
                 jsonNum = 1;
