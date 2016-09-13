@@ -91,7 +91,8 @@ $(function () {
 
         keys.push('95-96 Bulls');
         keys.push('Brian Scalabrine');
-        keys.push('Ian Sibner');
+        keys.push('Harambe (the GOAT)');
+        // keys.push('Ian Sibner');
         $.typeahead({
             input: '.player-search',
             order: 'desc',
