@@ -12,6 +12,8 @@ $(function () {
     var playerNameList = [];
     var playersInactiveThisWeek = [];
 
+    var MAX_STAT_FIELDS = 12;
+
     function playersLoaded (map) {
         playerMap = map;
         initializeTypeahead();
@@ -27,7 +29,7 @@ $(function () {
     };
     var nameColumn = {
         name: 'name',
-        label: 'PLAYER',
+        label: 'NAME',
         editable: false,
         cell: 'string'
     };
@@ -58,7 +60,7 @@ $(function () {
                     contents[k2] = v2;
                 });
                 $.each(contents, function (k, v) {
-                    if (k !== 'name') {
+                    if (k !== 'name' && columns.length < MAX_STAT_FIELDS) {
                         columns.push({
                             name: k,
                             label: k.toUpperCase(),
