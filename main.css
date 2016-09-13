@@ -1,0 +1,7 @@
+.backgrid tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.backgrid td.renderable {
+	text-align: center;
+}

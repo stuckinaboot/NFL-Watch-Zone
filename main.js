@@ -27,19 +27,19 @@ $(function () {
     };
     var nameColumn = {
         name: 'name',
-        label: 'name',
+        label: 'PLAYER',
         editable: false,
         cell: 'string'
     };
     var posColumn = {
         name: 'pos',
-        label: 'pos',
+        label: 'POS',
         editable: false,
         cell: 'string'
     };
     var teamColumn = {
         name: 'team',
-        label: 'team',
+        label: 'TEAM',
         editable: false,
         cell: 'string'
     };
@@ -61,7 +61,7 @@ $(function () {
                     if (k !== 'name') {
                         columns.push({
                             name: k,
-                            label: k,
+                            label: k.toUpperCase(),
                             editable: false,
                             cell: 'integer'
                         });

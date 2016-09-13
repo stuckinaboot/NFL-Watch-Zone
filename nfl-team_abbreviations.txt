@@ -1,8 +1,8 @@
-Arizona Cardinals	ARZ
+Arizona Cardinals	ARI
 Miami Dolphins	MIA
 Atlanta Falcons	ATL
 Minnesota Vikings	MIN
-Baltimore Ravens	BLT
+Baltimore Ravens	BAL
 New England Patriots	NE
 Buffalo Bills	BUF 
 New Orleans Saints	NO
@@ -12,12 +12,12 @@ Chicago Bears	CHI
 New York Jets	NYJ
 Cincinnati Bengals	CIN
 Oakland Raiders	OAK
-Cleveland Browns	CLV
+Cleveland Browns	CLE
 Philadelphia Eagles	PHI
 Dallas Cowboys	DAL
 Pittsburgh Steelers	PIT
 Denver Broncos	DEN
-Los Angeles Rams	STL
+Los Angeles Rams	LA
 Detroit Lions	DET
 San Diego Chargers	SD
 Green Bay Packers	GB
