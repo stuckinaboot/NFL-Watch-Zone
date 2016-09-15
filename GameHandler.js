@@ -103,7 +103,10 @@ $(function () {
             dataType: 'json',
             url: url,
             data: {},
-            success: onSuccess
+            success: onSuccess,
+            error: function () {
+                callback(undefined);
+            }
         });
     
     };

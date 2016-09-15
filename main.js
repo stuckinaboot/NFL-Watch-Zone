@@ -126,34 +126,34 @@ $(function () {
             //     stance: gameInfo['stance']
             // });
             function obtainInfoCallback (gameDetailedInfo) {
-                //NOTE: NEED TO UPDATE THIS SO IF A PLAYER HAS BOTH RUSHING AND RECEIVING, HE WILL APPEAR IN BOTH
-
+                
                 //Find the right model in the info
                 var foundPlayer = false;
                 // var playerObj = undefined;
                 // var keyFoundAt = '';
 
                 var keysFoundAt = {};
-
-                var foundStance = '';
-                var stances = ['home', 'away'];
-                $.each(stances, function (a, stance) {
-                    $.each(gameDetailedInfo[stance], function (key, val) {
-                        $.each(gameDetailedInfo[stance][key], function (i, player) {
-                            if (player['name'] === playerNameStr) {
-                                foundPlayer = true;
-                                // playerObj = player;
-                                // keyFoundAt = key;
-                                keysFoundAt[key] = player;
-                                foundStance = stance;
+                if (gameDetailedInfo !== undefined) {
+                    var foundStance = '';
+                    var stances = ['home', 'away'];
+                    $.each(stances, function (a, stance) {
+                        $.each(gameDetailedInfo[stance], function (key, val) {
+                            $.each(gameDetailedInfo[stance][key], function (i, player) {
+                                if (player['name'] === playerNameStr) {
+                                    foundPlayer = true;
+                                    // playerObj = player;
+                                    // keyFoundAt = key;
+                                    keysFoundAt[key] = player;
+                                    foundStance = stance;
+                                    // return false;
+                                }
+                            });
+                            if (foundPlayer) {
                                 // return false;
                             }
                         });
-                        if (foundPlayer) {
-                            // return false;
-                        }
                     });
-                });
+                }
                 if (foundPlayer) {
                     $.each(keysFoundAt, function (keyFoundAt, playerObj) {
                         //Check if model exist in collection
@@ -198,7 +198,7 @@ $(function () {
                     }
                 } else {
                     if (shouldDisplayAlert) {
-                        alertify.log('Player added but is not active this week');
+                        alertify.log('Player added but is not currently active');
                     }
                     if ($.inArray(playerTxt, playerNameList) == -1) {
                         playerNameList.push(playerTxt);
